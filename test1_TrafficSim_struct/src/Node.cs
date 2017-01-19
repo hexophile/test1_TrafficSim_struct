@@ -13,7 +13,7 @@ namespace test1_TrafficSim_struct
     /// </summary>
     public class Node :ObjectInfo, MapObject
     {
-        private KeyValuePair<Section, Section> sections; // ?! TODO
+        private KeyValuePair<Segment, Segment> sections; // ?! TODO
         
         /// <summary>
         /// 
@@ -25,9 +25,9 @@ namespace test1_TrafficSim_struct
         }
 
         /// <summary>
-        /// 
+        /// Standard co-ordinates' getter
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Object's co-ordinates</returns>
         public Coordinates GetCoordinates()
         {
             return this.coords;

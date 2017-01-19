@@ -9,9 +9,9 @@ using test1_TrafficSim_struct.data;
 namespace test1_TrafficSim_struct
 {
     /// <summary>
-    /// Section class represents road between nodes. Each section has lanes.
+    /// Segment class represents road between nodes. Each section has lanes.
     /// </summary>
-    public class Section :ObjectInfo, MapObject
+    public class Segment :ObjectInfo, MapObject
     {
         private LinkedList<Node> superiorNodes;
         private LinkedList<Lane> lanes;
@@ -19,7 +19,7 @@ namespace test1_TrafficSim_struct
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public Section()
+        public Segment()
         {
             superiorNodes = null;
             lanes = null;
@@ -28,7 +28,7 @@ namespace test1_TrafficSim_struct
         /// <summary>
         /// Default constructor.
         /// </summary>
-        public Section(LinkedList<Node> NODE)
+        public Segment(LinkedList<Node> NODE)
         {
             superiorNodes = NODE;
             lanes = null;
@@ -38,8 +38,8 @@ namespace test1_TrafficSim_struct
         /// Adds lane to the end of the lanes list.
         /// </summary>
         /// <param name="LANE">New lane</param>
-        /// <returns>Section with additional lane</returns>
-        public Section PushLane(Lane LANE)
+        /// <returns>Segment with additional lane</returns>
+        public Segment PushLane(Lane LANE)
         {
             lanes.AddLast(LANE);
             return this;
@@ -49,8 +49,8 @@ namespace test1_TrafficSim_struct
         /// Adds new lane to the end of the lanes list, only "Way" is needed.
         /// </summary>
         /// <param name="WAY">The way of lane</param>
-        /// <returns>Section with additional lane</returns>
-        public Section AddLane(Way WAY)
+        /// <returns>Segment with additional lane</returns>
+        public Segment AddLane(Way WAY)
         {
             Lane newLane = new Lane(this, WAY, 0);
             return PushLane(newLane);
@@ -61,8 +61,8 @@ namespace test1_TrafficSim_struct
         /// </summary>
         /// <param name="WAY">The way of lane</param>
         /// <param name="LENGTH">Amount of cells in lane</param>
-        /// <returns>Section with additional lane</returns>
-        public Section AddLane(Way WAY, int LENGTH)
+        /// <returns>Segment with additional lane</returns>
+        public Segment AddLane(Way WAY, int LENGTH)
         {
             Lane newLane = new Lane(this, WAY, LENGTH);
             return PushLane(newLane);
@@ -74,15 +74,15 @@ namespace test1_TrafficSim_struct
         /// <param name="SECTION"></param>
         /// <param name="LANE"></param>
         /// <returns>Surrent section</returns>
-        public static Section operator+(Section SECTION, Lane LANE)
+        public static Segment operator+(Segment SECTION, Lane LANE)
         {
             return SECTION.PushLane(LANE);
         }
 
         /// <summary>
-        /// 
+        /// Standard co-ordinates' getter
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Object's co-ordinates</returns>
         public Coordinates GetCoordinates()
         {
             return this.coords;

@@ -40,9 +40,9 @@ namespace test1_TrafficSim_struct
         }
 
         /// <summary>
-        /// 
+        /// Standard co-ordinates' getter
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Object's co-ordinates</returns>
         public Coordinates GetCoordinates()
         {
             return this.coords;

@@ -10,13 +10,13 @@ namespace test1_TrafficSim_struct.src
 {
     class Way :ObjectInfo, MapObject
     {
-        private LinkedList<Section> sections;
+        private LinkedList<Segment> sections;
         private LinkedList<Node> nodes;
-        
+
         /// <summary>
-        /// 
+        /// Standard co-ordinates' getter
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Object's co-ordinates</returns>
         public Coordinates GetCoordinates()
         {
             return this.coords;

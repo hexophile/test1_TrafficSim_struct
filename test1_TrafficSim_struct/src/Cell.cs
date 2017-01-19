@@ -13,7 +13,7 @@ namespace test1_TrafficSim_struct
     /// </summary>
     public class Cell : ObjectInfo, MapObject
     {
-        private WorldObject content;
+        private LaneObject content;
         private Lane superiorLane;
         private bool state;
 
@@ -41,7 +41,7 @@ namespace test1_TrafficSim_struct
         /// Function returns content of the cell
         /// </summary>
         /// <returns></returns>
-        public WorldObject GetContent()
+        public LaneObject GetContent()
         {
             return content;
         }
@@ -51,7 +51,7 @@ namespace test1_TrafficSim_struct
         /// </summary>
         /// <param name="OBJECT">World object</param>
         /// <returns></returns>
-        public Cell SetContent(WorldObject OBJECT) // ?!?!?!?! TODO
+        public Cell SetContent(LaneObject OBJECT) // ?!?!?!?! TODO
         {
             content = OBJECT;
             state = false;
@@ -70,9 +70,9 @@ namespace test1_TrafficSim_struct
         }
 
         /// <summary>
-        /// 
+        /// Standard co-ordinates' getter
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Object's co-ordinates</returns>
         public Coordinates GetCoordinates()
         {
             return this.coords;

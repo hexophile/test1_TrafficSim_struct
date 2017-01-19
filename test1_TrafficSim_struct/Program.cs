@@ -12,6 +12,7 @@ namespace test1_TrafficSim_struct
         {
             RoadManagementEngine roadManagementEngine = RoadManagementEngine.GetInstance();
 
+            /*
             XElement areaData =
                 new XElement("AreaData",
                     new XElement("area1",
@@ -25,6 +26,8 @@ namespace test1_TrafficSim_struct
                     )
                 ); // Gotta make nice XML generator
             Console.WriteLine(areaData);
+            */
+            
             
             //areaData
             //Area newArea = Area.Generate(areaData);

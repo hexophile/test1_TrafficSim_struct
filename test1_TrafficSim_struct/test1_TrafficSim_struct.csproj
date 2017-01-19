@@ -62,7 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="engine\RoadManagementEngine.cs" />
     <Compile Include="src\Segment.cs" />
-    <Compile Include="interfaces\WorldObject.cs" />
+    <Compile Include="interfaces\LaneObject.cs" />
     <Compile Include="src\Way.cs" />
   </ItemGroup>
   <ItemGroup>

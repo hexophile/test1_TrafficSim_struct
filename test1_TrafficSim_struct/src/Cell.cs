@@ -15,7 +15,15 @@ namespace test1_TrafficSim_struct
     {
         private LaneObject content;
         private Lane superiorLane;
+        private Cell nextCell;
         private bool state;
+
+        /// <summary>
+        /// Do not touch
+        /// </summary>
+        private Cell()
+        {
+        }
 
         /// <summary>
         /// 

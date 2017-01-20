@@ -15,7 +15,7 @@ namespace test1_TrafficSim_struct
     {
         private Segment superiorSection;
         private Way way;
-        private LinkedList<Cell> length;
+        private LinkedList<Cell> cells;
 
         /// <summary>
         /// Parametrized constructor, initializes as specified in parameters.
@@ -27,11 +27,21 @@ namespace test1_TrafficSim_struct
         { // But not sure if I should inherit length from other lanes in superiorSection.
             for( int i = 0; i < LENGTH; i++ )
             {
-                length.AddLast(new Cell(this));
+                cells.AddLast(new Cell(this));
             }
 
             superiorSection = SECTION;
             way = WAY;
+        }
+
+        /// <summary>
+        /// Returns next cell of the specified cell.
+        /// </summary>
+        /// <param name="cell"></param>
+        /// <returns></returns>
+        public Cell GetNext(Cell cell)
+        {
+            return cells.Find(cell).Next.Value;
         }
 
         /// <summary>

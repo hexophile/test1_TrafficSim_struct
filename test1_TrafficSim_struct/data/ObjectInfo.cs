@@ -8,12 +8,12 @@ namespace test1_TrafficSim_struct.data
 {
     public class ObjectInfo
     {
-        protected string name { get; set; }
+        protected string name;
         protected Coordinates coords;
 
         public virtual string GetName()
         {
-            return "test";
+            return this.name;
         }
     }
 }

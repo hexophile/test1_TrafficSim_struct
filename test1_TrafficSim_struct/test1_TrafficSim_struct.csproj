@@ -52,6 +52,8 @@
     <Compile Include="gui\MainDrawForm.Designer.cs">
       <DependentUpon>MainDrawForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="objects\vehicles\Car.cs" />
+    <Compile Include="objects\vehicles\Vehicle.cs" />
     <Compile Include="src\Area.cs" />
     <Compile Include="src\Cell.cs" />
     <Compile Include="data\DataStructures.cs" />
@@ -73,7 +75,9 @@
       <DependentUpon>MainDrawForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="objects\obstacles\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -12,8 +12,22 @@ namespace test1_TrafficSim_struct
     /// </summary>
     public interface LaneObject :MapObject // well, each world object is supposed to have coords (vehicles, obstacles etc.)
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         Cell GetCell();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         Lane GetLane();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         Segment GetSegment();
     }
 }

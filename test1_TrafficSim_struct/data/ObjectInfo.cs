@@ -11,6 +11,10 @@ namespace test1_TrafficSim_struct.data
         protected string name;
         protected Coordinates coords;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public virtual string GetName()
         {
             return this.name;

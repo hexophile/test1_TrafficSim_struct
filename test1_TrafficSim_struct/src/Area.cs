@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Xml.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using test1_TrafficSim_struct.interfaces;
@@ -14,7 +14,6 @@ namespace test1_TrafficSim_struct
     public class Area :ObjectInfo, MapObject
     {
         private LinkedList<Way> ways;
-
         private Coordinates coords;
 
         /// <summary>
@@ -33,10 +32,32 @@ namespace test1_TrafficSim_struct
         {
             return "OK";
         }
-
-        static public Area Generate(List<KeyValuePair<KeyValuePair<int, bool>, int>> sections)
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <returns></returns>
+        public Area GenerateWays(int amount)
         {
-            return new Area();
+            for ( int i = 0; i < amount; i++)
+            {
+                this.ways.AddLast(new Way()); // TODO
+            }
+
+            return this;
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <param name="areaXML"></param>
+        /// <returns></returns>
+        static public Area Generate(XElement areaXML)
+        {
+            Area newArea = new Area();
+            newArea.GenerateWays(2);
+            return newArea;
         }
 
         /// <summary>

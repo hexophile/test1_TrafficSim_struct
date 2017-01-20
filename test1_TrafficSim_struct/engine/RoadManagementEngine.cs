@@ -68,10 +68,7 @@ namespace test1_TrafficSim_struct
         /// </summary>
         public int StartEngine()
         {
-            /*
-            Area currentArea = new Area();
-            currentArea = Area.Generate();
-            */
+            Area currentArea = Area.Generate(null);
 
             MainDrawForm mainForm = new MainDrawForm(currentArea);
 

@@ -10,8 +10,26 @@ namespace test1_TrafficSim_struct.src
 {
     class Way :ObjectInfo, MapObject
     {
-        private LinkedList<Segment> sections;
+        private LinkedList<Segment> segments;
         private LinkedList<Node> nodes;
+
+        /// <summary>
+        /// Restricted
+        /// </summary>
+        private Way()
+        {
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="segmentList"></param>
+        /// <param name="nodesList"></param>
+        public Way(LinkedList<Segment> segmentList, LinkedList<Node> nodesList)
+        {
+            segments = segmentList;
+            nodes = nodesList;
+        }
 
         /// <summary>
         /// Standard co-ordinates' getter

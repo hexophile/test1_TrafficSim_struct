@@ -8,8 +8,9 @@ using test1_TrafficSim_struct.data;
 
 namespace test1_TrafficSim_struct.src
 {
-    class Way :ObjectInfo, MapObject
+    public class Way :ObjectInfo, MapObject
     {
+        private static long count = 0;
         private LinkedList<Segment> segments;
         private LinkedList<Node> nodes;
 
@@ -19,6 +20,11 @@ namespace test1_TrafficSim_struct.src
         private Way()
         {
         }
+
+        ~Way()
+        {
+            count--;
+        }
         
         /// <summary>
         /// 
@@ -27,8 +33,25 @@ namespace test1_TrafficSim_struct.src
         /// <param name="nodesList"></param>
         public Way(LinkedList<Segment> segmentList, LinkedList<Node> nodesList)
         {
+            count++;
+            name = "User_defined_Way:" + count;
             segments = segmentList;
             nodes = nodesList;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Segment GetSegmentAt(int index)
+        {
+            LinkedListNode<Segment> temp = this.segments.First;
+            for (int i = 0; i < index; i++)
+            {
+                temp = temp.Next;
+            }
+            return temp.Value;
         }
 
         /// <summary>

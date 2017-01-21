@@ -13,8 +13,29 @@ namespace test1_TrafficSim_struct
     /// </summary>
     public class Node :ObjectInfo, MapObject
     {
-        private KeyValuePair<Segment, Segment> sections; // ?! TODO
+        private static long count = 0;
+        private Segment[] segments; // ?! TODO
         
+        /// <summary>
+        /// 
+        /// </summary>
+        public Node()
+        {
+            count++;
+            name = "Default_constructed_Node:" + count;
+            segments = new Segment[2];
+            segments[0] = null;
+            segments[1] = null;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        ~Node()
+        {
+            count--;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -22,6 +43,26 @@ namespace test1_TrafficSim_struct
         public String GetStatus()
         {
             return "OK";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public Node SetFirstSegment(Segment segment)
+        {
+            this.segments[0] = segment;
+            return this;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public Node SetLastSegment(Segment segment)
+        {
+            this.segments[1] = segment;
+            return this;
         }
 
         /// <summary>

@@ -69,6 +69,14 @@ namespace test1_TrafficSim_struct
         public int StartEngine()
         {
             Area currentArea = Area.Generate(null);
+            Console.WriteLine(currentArea.GetName());
+            Console.WriteLine(currentArea.GetWay(0).GetName());
+            Console.WriteLine(currentArea.GetWay(0).GetSegmentAt(0).GetName());
+            Console.WriteLine(currentArea.GetWay(0).GetSegmentAt(0).superiorNodes[0].GetName());
+            Console.WriteLine(currentArea.GetWay(0).GetSegmentAt(0).superiorNodes[1].GetName());
+            Console.WriteLine(currentArea.GetWay(0).GetSegmentAt(0).GetLaneAt(0).GetName());
+            //Console.WriteLine(currentArea.GetWay(0).GetSegmentAt(0).GetLaneAt(0).GetNext());
+            Console.WriteLine();
 
             MainDrawForm mainForm = new MainDrawForm(currentArea);
 

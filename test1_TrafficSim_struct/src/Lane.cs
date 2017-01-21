@@ -13,8 +13,9 @@ namespace test1_TrafficSim_struct
     /// </summary>
     public class Lane : ObjectInfo, MapObject // Not sure about connections, should it be in Lane or Segment
     {
+        private static long count = 0;
         private Segment superiorSection;
-        private Way way;
+        private Direction way;
         private LinkedList<Cell> cells;
 
         /// <summary>
@@ -23,13 +24,16 @@ namespace test1_TrafficSim_struct
         /// <param name="SECTION">Parent section (Here: road)</param>
         /// <param name="WAY">The way of lane</param>
         /// <param name="LENGTH">Amount of cells in lane</param>
-        public Lane(Segment SECTION, Way WAY, int LENGTH)
+        public Lane(Segment SECTION, Direction WAY, int LENGTH)
         { // But not sure if I should inherit length from other lanes in superiorSection.
+            cells = new LinkedList<Cell>();
             for( int i = 0; i < LENGTH; i++ )
             {
                 cells.AddLast(new Cell(this));
             }
 
+            count++;
+            name = "User_defined_Lane" + count;
             superiorSection = SECTION;
             way = WAY;
         }

@@ -12,12 +12,12 @@ namespace test1_TrafficSim_struct.data
     }
 
     /// <summary>
-    /// Way of the lane structur, 0 for right and 1 for left
+    /// Direction of the lane structur, 0 for right and 1 for left
     /// </summary>
-    public enum Way
+    public enum Direction
     {
-        Right,
-        Left
+        Forward,
+        Backward
     }
 
     public struct AreaData

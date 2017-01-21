@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using test1_TrafficSim_struct.interfaces;
 using test1_TrafficSim_struct.data;
+using test1_TrafficSim_struct.src;
 
 namespace test1_TrafficSim_struct
 {
@@ -13,7 +14,8 @@ namespace test1_TrafficSim_struct
     /// </summary>
     public class Area :ObjectInfo, MapObject
     {
-        private LinkedList<Way> ways;
+        private static long count = 0;
+        private LinkedList<Way> ways; // refactor to List<> TODO
         private Coordinates coords;
 
         /// <summary>
@@ -21,7 +23,14 @@ namespace test1_TrafficSim_struct
         /// </summary>
         public Area()
         {
-            ways = null;
+            count++;
+            name = "Default_Constructed_Area:"+count;
+            ways = new LinkedList<Way>();
+        }
+
+        ~Area()
+        {
+            count--;
         }
 
         /// <summary>
@@ -40,9 +49,24 @@ namespace test1_TrafficSim_struct
         /// <returns></returns>
         public Area GenerateWays(int amount)
         {
+            Segment segment = new Segment();
+            segment += new Lane(segment, Direction.Backward, 4);
+            segment += new Lane(segment, Direction.Forward, 4);
+
+            LinkedList<Node> nodes = new LinkedList<Node>();
+            nodes.AddLast(new Node().SetFirstSegment(null).SetLastSegment(segment));
+            nodes.AddLast(new Node().SetFirstSegment(segment).SetLastSegment(null));
+
+            segment.SetFirstNode(nodes.First.Value);
+            segment.SetLastNode(nodes.Last.Value);
+            // TODO repair this...
+
+            LinkedList<Segment> segmentList = new LinkedList<Segment>();
+            segmentList.AddFirst(segment);
+
             for ( int i = 0; i < amount; i++)
             {
-                this.ways.AddLast(new Way()); // TODO
+                this.ways.AddLast(new Way(segmentList, nodes)); // TODO
             }
 
             return this;
@@ -58,6 +82,30 @@ namespace test1_TrafficSim_struct
             Area newArea = new Area();
             newArea.GenerateWays(2);
             return newArea;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public LinkedList<Way> GetWays()
+        {
+            return this.ways;
+        }
+
+        /// <summary>
+        /// TODO
+        /// </summary>
+        /// <returns></returns>
+        public Way GetWay(int index)
+        {
+            LinkedListNode<Way> temp = this.ways.First;
+            for(int i = 0; i < index; i++)
+            {
+                temp = temp.Next;
+            }
+
+            return temp.Value;
         }
 
         /// <summary>
